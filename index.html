@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>取消默認行為</title>
+</head>
+<body>
+    <a href ="#" id="bread">麵包</a>
+    <a href="javascript:;">牛奶</a>
+
+    <script type="text/javascript">
+        //事件對相中兩個方法 阻止默認事件 preventDefault() returnValue兼容ie8以下瀏覽器  return fasle;
+        var bread = document.getElementById('bread');
+        //1.preventDefault() ie8不支持
+        bread.onclick = function(e){
+            e = e || window.event;
+            //阻止冒泡
+            //e.stopPropagation();
+
+            //阻止默認事件 ie8以下不支持
+            //e.preventDefault();
+            //阻止默認事件 FF ie8以上不支持
+            //e.returnValue = false;
+
+            //兼容性寫法
+            //if(e.preventDefault()){
+           //     e.preventDefault();
+           //}else{
+                //e.returnValue = false;
+            //}
+            //阻止默認事件 技巧簡寫
+                return false;
+
+        }
+    
+    </script>
+</body>
+</html>
